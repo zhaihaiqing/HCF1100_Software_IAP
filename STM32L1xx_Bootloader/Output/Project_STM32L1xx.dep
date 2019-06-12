@@ -1,5 +1,5 @@
 Dependencies for Project 'Project', Target 'STM32L1xx': (DO NOT MODIFY !)
-F (.\User\main.c)(0x5D00B19D)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I .\User -I .\FWlib\src -I .\FWlib\inc -I .\CMSIS -I .\BSD-I.\RTE\_STM32L1xx-I"D:\Program Files\Keil_v5\ARM\PACK\Keil\STM32L1xx_DFP\1.2.0\Device\Include"-I"D:\Program Files\Keil_v5\ARM\CMSIS\Include"-D__UVISION_VERSION="525" -DSTM32L151xB -DUSE_STDPERIPH_DRIVER -DSTM32L1XX-o .\output\main.o --omf_browse .\output\main.crf --depend .\output\main.d)
+F (.\User\main.c)(0x5D00B7FD)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I .\User -I .\FWlib\src -I .\FWlib\inc -I .\CMSIS -I .\BSD-I.\RTE\_STM32L1xx-I"D:\Program Files\Keil_v5\ARM\PACK\Keil\STM32L1xx_DFP\1.2.0\Device\Include"-I"D:\Program Files\Keil_v5\ARM\CMSIS\Include"-D__UVISION_VERSION="525" -DSTM32L151xB -DUSE_STDPERIPH_DRIVER -DSTM32L1XX-o .\output\main.o --omf_browse .\output\main.crf --depend .\output\main.d)
 I (User\main.h)(0x5D00B1AB)
 I (D:\Program Files\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
 I (D:\Program Files\Keil_v5\ARM\ARMCC\include\string.h)(0x599ECD2C)

@@ -27,49 +27,8 @@ Project File Date:  06/12/2019
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'D:\Program Files\Keil_v5\ARM\ARMCC\Bin'
 Build target 'STM32L1xx'
-compiling IFlash.c...
-compiling main.c...
-compiling gpio.c...
-compiling uart.c...
-compiling stm32l1xx_it.c...
-compiling ADXL355.c...
-compiling HMC5883.c...
-User\HMC5883.c(72): warning:  #550-D: variable "err"  was set but never used
-  	uint8_t err;
-User\HMC5883.c(181): warning:  #550-D: variable "err"  was set but never used
-  	uint8_t err;
-User\HMC5883.c(425): warning:  #177-D: variable "tmp_data"  was declared but never referenced
-  	uint8_t tmp_data;
-User\HMC5883.c: 3 warnings, 0 errors
-compiling Modbus.c...
-User\Modbus.c(458): warning:  #167-D: argument of type "const unsigned char *" is incompatible with parameter of type "const char *"
-  	if( strncmp(FactorySetValueWord,(unsigned char *)&ModbusDataPackage.dat[2],4) !=0 )err=err_OE;
-User\Modbus.c(458): warning:  #167-D: argument of type "unsigned char *" is incompatible with parameter of type "const char *"
-  	if( strncmp(FactorySetValueWord,(unsigned char *)&ModbusDataPackage.dat[2],4) !=0 )err=err_OE;
-User\Modbus.c(456): warning:  #177-D: variable "OriginaAltitudeTemp"  was declared but never referenced
-  	float OriginaAltitudeTemp=0;
-User\Modbus.c(507): warning:  #167-D: argument of type "const unsigned char *" is incompatible with parameter of type "const char *"
-  	if( strncmp(FactorySetValueWord,(unsigned char *)&ModbusDataPackage.dat[2],4) !=0 )err=err_OE;
-User\Modbus.c(507): warning:  #167-D: argument of type "unsigned char *" is incompatible with parameter of type "const char *"
-  	if( strncmp(FactorySetValueWord,(unsigned char *)&ModbusDataPackage.dat[2],4) !=0 )err=err_OE;
-User\Modbus.c(651): warning:  #550-D: variable "m11"  was set but never used
-  	float m11=0,m12=0,m13=0;
-User\Modbus.c(651): warning:  #550-D: variable "m12"  was set but never used
-  	float m11=0,m12=0,m13=0;
-User\Modbus.c(652): warning:  #550-D: variable "m21"  was set but never used
-  	float m21=0,m22=0,m23=0;
-User\Modbus.c(652): warning:  #550-D: variable "m22"  was set but never used
-  	float m21=0,m22=0,m23=0;
-User\Modbus.c(653): warning:  #550-D: variable "m31"  was set but never used
-  	float m31=0,m32=0,m33=0;
-User\Modbus.c(653): warning:  #550-D: variable "m32"  was set but never used
-  	float m31=0,m32=0,m33=0;
-User\Modbus.c: 11 warnings, 0 errors
-linking...
-Program Size: Code=15788 RO-data=732 RW-data=108 ZI-data=5508  
-FromELF: creating hex file...
 After Build - User command #1: D:\Program Files\Keil_v5\\ARM\ARMCC\bin\fromelf.exe --bin --output=Output\Project.bin .\Listings\Project.axf
-".\Listings\Project.axf" - 0 Error(s), 14 Warning(s).
+".\Listings\Project.axf" - 0 Error(s), 0 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -83,7 +42,7 @@ Package Vendor: Keil
   D:\Program Files\Keil_v5\ARM\PACK\Keil\STM32L1xx_DFP\1.2.0\Device\Include
 
 <h2>Collection of Component Files used:</h2>
-Build Time Elapsed:  00:00:03
+Build Time Elapsed:  00:00:01
 </pre>
 </body>
 </html>

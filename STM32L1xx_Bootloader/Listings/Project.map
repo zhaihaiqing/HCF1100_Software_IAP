@@ -999,9 +999,9 @@ Memory Map of the image
 
   Image Entry point : 0x080000f5
 
-  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x0000154c, Max: 0x00008000, ABSOLUTE)
+  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00001518, Max: 0x00008000, ABSOLUTE)
 
-    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00001518, Max: 0x00008000, ABSOLUTE)
+    Execution Region .text (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00001518, Max: 0x00008000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -1108,7 +1108,10 @@ Memory Map of the image
     0x080014f8   0x080014f8   0x00000020   Data   RO         2827    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x08001518, Size: 0x00001888, Max: 0x00004000, ABSOLUTE)
+
+  Load Region LR_IRAM1 (Base: 0x08001518, Size: 0x00000034, Max: 0x00004000, ABSOLUTE)
+
+    Execution Region .data (Exec base: 0x20000000, Load base: 0x08001518, Size: 0x00000034, Max: 0xffffffff, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -1123,6 +1126,12 @@ Memory Map of the image
     0x20000019   0x08001531   0x00000001   Data   RW          575    .data               uart.o
     0x2000001a   0x08001532   0x00000001   Data   RW          576    .data               uart.o
     0x2000001b   0x08001533   0x00000019   Data   RW         1717    .data               stm32l1xx_rcc.o
+
+
+    Execution Region .bss (Exec base: 0x20000034, Load base: 0x0800154c, Size: 0x00001854, Max: 0xffffffff, ABSOLUTE)
+
+    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
+
     0x20000034        -       0x00000038   Zero   RW            9    .bss                main.o
     0x2000006c        -       0x00000203   Zero   RW          350    .bss                modbus.o
     0x2000026f   0x0800154c   0x00000001   PAD
