@@ -1,0 +1,35 @@
+SET PATH=C:\Keil_v5\ARM\ARMCC\Bin;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\MATLAB\R2016a\runtime\win64;C:\Program Files\MATLAB\R2016a\bin;C:\Program Files\MATLAB\R2016a\polyspace\bin;C:\Users\haiqing\AppData\Local\Programs\Python\Python37-32\Scripts\;C:\Users\haiqing\AppData\Local\Programs\Python\Python37-32\;C:\Cadence\SPB_16.6\openaccess\bin\win32\opt;C:\Cadence\SPB_16.6\tools\capture;C:\Cadence\SPB_16.6\tools\pspice;C:\Cadence\SPB_16.6\tools\specctra\bin;C:\Cadence\SPB_16.6\tools\fet\bin;C:\Cadence\SPB_16.6\tools\libutil\bin;C:\Cadence\SPB_16.6\tools\bin;C:\Cadence\SPB_16.6\tools\pcb\bin;C:\Users\haiqing\AppData\Local\Microsoft\WindowsApps
+SET CPU_TYPE=STM32L151CB
+SET CPU_VENDOR=STMicroelectronics
+SET UV2_TARGET=STM32L1xx
+SET CPU_CLOCK=0x00B71B00
+"C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\output\main.__i"
+"C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\output\stm32l1xx_it.__i"
+"C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\output\uart.__i"
+"C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\output\gpio.__i"
+"C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\output\iap.__i"
+"C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\output\ieeprom.__i"
+"C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\output\iflash.__i"
+"C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\output\modbus.__i"
+"C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\output\misc.__i"
+"C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\output\stm32l1xx_comp.__i"
+"C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\output\stm32l1xx_crc.__i"
+"C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\output\stm32l1xx_dbgmcu.__i"
+"C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\output\stm32l1xx_dma.__i"
+"C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\output\stm32l1xx_exti.__i"
+"C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\output\stm32l1xx_flash.__i"
+"C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\output\stm32l1xx_flash_ramfunc.__i"
+"C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\output\stm32l1xx_gpio.__i"
+"C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\output\stm32l1xx_iwdg.__i"
+"C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\output\stm32l1xx_opamp.__i"
+"C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\output\stm32l1xx_pwr.__i"
+"C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\output\stm32l1xx_rcc.__i"
+"C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\output\stm32l1xx_syscfg.__i"
+"C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\output\stm32l1xx_tim.__i"
+"C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\output\stm32l1xx_usart.__i"
+"C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\output\stm32l1xx_wwdg.__i"
+"C:\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\output\system_stm32l1xx.__i"
+"C:\Keil_v5\ARM\ARMCC\Bin\ArmAsm" --Via ".\output\startup_stm32l1xx_md._ia"
+"C:\Keil_v5\ARM\ARMCC\Bin\ArmLink" --Via ".\Output\Project.lnp"
+"C:\Keil_v5\ARM\ARMCC\Bin\fromelf.exe" ".\Output\Project.axf" --i32combined --output ".\Output\Project.hex"
+C:\Keil_v5\\ARM\ARMCC\bin\fromelf.exe --bin --output=Output\Project.bin .\Output\Project.axf
