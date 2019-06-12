@@ -23,6 +23,8 @@ unsigned int Update_Firmware_Flag = 0;     	//APP程序更新标志位		存储位置：EEPRO
 
 volatile BL_Data_type BL_Data;
 
+RCC_ClocksTypeDef  RCC_Clocks1;
+
 /*******************************************************************************
 * Function Name  : Delay function
 * Description    : 延时函数，空闲时进入sleep模式
@@ -45,21 +47,22 @@ void Delay(volatile unsigned int nTime)
 *******************************************************************************/
 void Init_SysTick(void)
 {
-	SysTick_Config(SystemCoreClock / 1000); //设置定时长度，1ms
+	SysTick_Config(RCC_Clocks1.SYSCLK_Frequency / 1000); //设置定时长度，1ms
 	NVIC_SetPriority(SysTick_IRQn, 0x0);    //SysTick中断优先级设置
 }
 
 void Init_Hardware(void)
 {
+	
 	//完成硬件初始化
 	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_1);//中断优先级分组
 	Init_SysTick();//开启SysTick定时器
 	GPIO_Configuration();
 	UART1_Configuration(9600);
 
-#ifdef  debug	
-	UART3_Configuration(115200);
-#endif
+//#ifdef  debug	
+//	UART3_Configuration(115200);
+//#endif
 	
 	log_info("Run in BootLoader,Hardware has init!\r\n");
 	
@@ -73,6 +76,10 @@ void Init_Parameter(void)
 	
 	Delay(5);								//启动延时
 	
+	
+	
+//	EEErase(EEPROM_BL_FLAG_ADDR,256);
+//	EEErase(EEPROM_APP_DATA_ADDR,256);
 	
 	BL_Data.APP_FlashAddr = FLASH_APP_ADDRESS;										  //APP程序起始地址
 	BL_Data.Start_sector  = (FLASH_APP_ADDRESS-FLASH_START_ADDRESS)/FLASH_SECTOR_SIZE;//计算APP程序起始扇区
@@ -95,7 +102,7 @@ void Init_Parameter(void)
 	
 	
 	//如果需要更新，读取和APP相关的数据
-	EERead(EEPROM_APP_DATA_ADDR,tem,2);		//读取设备485通讯地址
+	EERead(EEPROM_APP_DATA_ADDR+KREEPROM_BASEADDR,tem,2);		//读取设备485通讯地址
 	BL_Data.DeviceAddress= tem[0];
 	if( (BL_Data.DeviceAddress<1) || (BL_Data.DeviceAddress>247) )	
 	{
@@ -120,9 +127,23 @@ void Init_Parameter(void)
 *******************************************************************************/
 int main(void)
 {	
+//	uint8_t tem[8]={0};
+//	uint16_t M_crc=0;
+	
+	RCC_GetClocksFreq(&RCC_Clocks1);
 	Init_Hardware();	//完成硬件驱动初始化
 	Init_Parameter();	//完成参数初始化
 	
+//	tem[0]=BL_Data.DeviceAddress;
+//	tem[1]=0xA3;
+//	tem[2]=0x44;
+//	tem[3]=0x66;
+//	tem[4]=0x88;
+//	tem[5]=0xaa;
+//	M_crc=CRC16_Check(tem,6);
+//	tem[6] = (M_crc & 0xff);//校验低8位
+//	tem[7] = (M_crc >> 8);//校验高8位
+//	U485SendData(tem,8);//向485发送数据
 	
 	while(1)
 	{

@@ -9,7 +9,7 @@ void GPIO_Configuration(void)
 	RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOA|RCC_AHBPeriph_GPIOB, ENABLE);
 
 	/*ÍÆÍìÊä³ö*/
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_1|GPIO_Pin_3 | GPIO_Pin_4;				//PA3=WDI,
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_3 | GPIO_Pin_4;				//PA3=WDI,
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
 	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
 	GPIO_InitStructure.GPIO_PuPd  = GPIO_PuPd_UP;

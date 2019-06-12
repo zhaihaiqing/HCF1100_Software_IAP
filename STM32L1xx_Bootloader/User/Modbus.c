@@ -112,10 +112,10 @@ char Get_SNInfo_Fun(void)
 	
 	EERead(EEPROM_SHARE_DATA_ADDR,SN_EEPROM,16);//读取EEPROM中共享字段中的SN信息
 	
-	for(i=0;i<16;i++)
-	{
-		log_info("SN_Program[%d]:0x%x----SN_EEPROM[%d]:0x%x\r\n",i,SN_Program[i],i,SN_EEPROM[i]);
-	}
+//	for(i=0;i<16;i++)
+//	{
+//		log_info("SN_Program[%d]:0x%x----SN_EEPROM[%d]:0x%x\r\n",i,SN_Program[i],i,SN_EEPROM[i]);
+//	}
 	
 	//循环判断ROM中的SN和Program中的SN是否相等，不相等则重新向EEPROMROM中写入SN信息
 	for(i=0;i<16;i++)

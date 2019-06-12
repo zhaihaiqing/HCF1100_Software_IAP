@@ -3,13 +3,17 @@
 #define __IAP_CONFIG_H
 
 
-#define	BYTES_NUM_EACH_TRAN			256							//定义每包数据中包含的镜像字节数，必须输4的整数倍
+#define	BYTES_NUM_EACH_TRAN			256			//定义每包数据中包含的镜像字节数，必须输4的整数倍
 /***********          IO配置           *************************/
 
-#define ClC_WatchDogTask()			GPIOA->ODR ^= GPIO_Pin_1	//看门狗喂狗
+#define ClC_WatchDogTask()			GPIOA->ODR ^= GPIO_Pin_3	//看门狗喂狗
 
-#define RS485_RX()    	 GPIO_ResetBits(GPIOB,GPIO_Pin_5)
-#define RS485_TX()    	 GPIO_SetBits(GPIOB,GPIO_Pin_5)
+#define RS485_RX()    	 			GPIO_ResetBits(GPIOA,GPIO_Pin_4)
+#define RS485_TX()    	 			GPIO_SetBits(GPIOA,GPIO_Pin_4)
+
+//
+//#define	USART1_Tx	GPIO_Pin_6
+//#define	USART1_Rx	GPIO_Pin_7
 
 //USART
 
@@ -44,6 +48,10 @@
 
 
 /***********          IEEPROM配置           *************************/
+
+#define KREEPROM_BASEADDR			  	0x32	 //保持寄存器存储基地址
+
+
 
 #define PEKEY1        0x89ABCDEF                //FLASH_PEKEYR
 #define PEKEY2        0x02030405                //FLASH_PEKEYR    以下分别实现按字节和字方式写入：

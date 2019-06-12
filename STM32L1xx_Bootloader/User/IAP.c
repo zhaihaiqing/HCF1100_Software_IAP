@@ -104,47 +104,44 @@ void Re_BootLoader_Update(void)
 
 uint8_t Wait_Commend(void)
 {
-	uint16_t ix=0,i=0,M_crc=0;
+	uint16_t count=0,i=0,M_crc=0;
 	
+	count=1000;
+	log_info("PowerON Wait Update Firmware 5S...\r\n");
 	while(1)
 	{
-		ix=1000;
-		log_info("PowerON Wait Update Firmware 5S...\r\n");
-		while(1)
+		Delay(5);
+		ClC_WatchDogTask();//等待MT消息
+		count--;
+		//if(count==800)log_info("PowerON Wait Update Firmware 4S...\r\n");
+		//if(count==600)log_info("PowerON Wait Update Firmware 3S...\r\n");
+		//if(count==400)log_info("PowerON Wait Update Firmware 2S...\r\n");
+		//if(count==200)log_info("PowerON Wait Update Firmware 1S...\r\n");
+		if(count==0)
 		{
-			Delay(5);
-			ClC_WatchDogTask();//等待MT消息
-			ix--;
-			if(ix==800)log_info("PowerON Wait Update Firmware 4S...\r\n");
-			if(ix==600)log_info("PowerON Wait Update Firmware 3S...\r\n");
-			if(ix==400)log_info("PowerON Wait Update Firmware 2S...\r\n");
-			if(ix==200)log_info("PowerON Wait Update Firmware 1S...\r\n");
-			if(ix==0)
+			log_info("Wait_Update Timeout!\r\n");
+			return 0;
+		}
+		
+		if(ModbusDataPackage.DataFlag)
+		{
+			for(i=0;i<ModbusDataPackage.DataLen;i++)
 			{
-				log_info("Wait_Update Timeout!\r\n");
-				return 0;
+				ModbusDataPackage.dat[i] =USART1_GetChar();//将串口数据放到指定buf
 			}
 			
-			if(ModbusDataPackage.DataFlag)
+			M_crc = CRC16_Check((uint8_t *)ModbusDataPackage.dat,ModbusDataPackage.DataLen-2 );
+			if( (( M_crc == ( (ModbusDataPackage.dat[ModbusDataPackage.DataLen - 1] << 8) |    ModbusDataPackage.dat[ModbusDataPackage.DataLen - 2])        )) || \
+				(((ModbusDataPackage.dat[ModbusDataPackage.DataLen - 1]) == 0xff    ) && ((ModbusDataPackage.dat[ModbusDataPackage.DataLen - 2]) == 0xff))  )				
 			{
-				for(i=0;i<ModbusDataPackage.DataLen;i++)
+			
+				if((ModbusDataPackage.dat[0]==BL_Data.DeviceAddress)&&(ModbusDataPackage.DataLen==8))
 				{
-					ModbusDataPackage.dat[i] =USART1_GetChar();//将串口数据放到指定buf
+					if(ModbusDataPackage.dat[1]==0x22)Re_BootLoader_Info();
+					if(ModbusDataPackage.dat[1]==0x23){Re_BootLoader_Update();return 0;};
 				}
-				
-				M_crc = CRC16_Check((uint8_t *)ModbusDataPackage.dat,ModbusDataPackage.DataLen-2 );
-				if( (( M_crc == ( (ModbusDataPackage.dat[ModbusDataPackage.DataLen - 1] << 8) |    ModbusDataPackage.dat[ModbusDataPackage.DataLen - 2])        )) || \
-					(((ModbusDataPackage.dat[ModbusDataPackage.DataLen - 1]) == 0xff    ) && ((ModbusDataPackage.dat[ModbusDataPackage.DataLen - 2]) == 0xff))  )				
-				{
-				
-					if((ModbusDataPackage.dat[0]==BL_Data.DeviceAddress)&&(ModbusDataPackage.DataLen==8))
-					{
-						if(ModbusDataPackage.dat[1]==0x22)Re_BootLoader_Info();
-						if(ModbusDataPackage.dat[1]==0x23){Re_BootLoader_Update();return 0;};
-					}
-				}
-				ClearUsartBuf();
 			}
+			ClearUsartBuf();
 		}
 	}
 }

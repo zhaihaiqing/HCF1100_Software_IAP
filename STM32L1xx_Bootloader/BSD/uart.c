@@ -60,7 +60,7 @@ void UART1_Configuration(unsigned int baudrate)
 	GPIO_PinAFConfig(GPIOB,GPIO_PinSource7,GPIO_AF_USART1);
 	
 	/* 将USART1_Tx的GPIO配置为推挽复用模式 */
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_6;     //GPIO_Pin_9
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_6;     
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_40MHz;
 	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
@@ -372,7 +372,7 @@ printf功能定义，(括号中表示从哪个串口输出数据及数据类型)
 **********************************************************************************/
 PUTCHAR_PROTOTYPE
 {
-	USART_PutChar(USART3,(uint8_t) ch);
+	USART_PutChar(USART1,(uint8_t) ch);
 	return ch;
 }
 
