@@ -546,6 +546,46 @@ char HMC5883_Offset(void)
 	return 1;
 }
 
+/********************************
+设定初值，完成后写保持寄存器
+数据格式:器件地址(1字节)+功能码(0x41)+操作码(4字节)+校验(2字节)
+返回格式:器件地址(1字节)+功能码(0x41)+所修改寄存器首地址(2字节)+所修改寄存器数量(2字节)+校验(2字节)
+操作码:0x33,0x55,0x77,0x99
+*********************************/
+char ResetSoftware(void)
+{
+	uint8_t err=0;
+	uint8_t temp[10];
+	uint16_t crc;
+	float OriginaAltitudeTemp=0;
+	if(ModbusDataPackage.DataLen !=8 )err = err_OE;
+	if( strncmp(FactoryResetWord,(unsigned char *)&ModbusDataPackage.dat[2],4) !=0 )err=err_OE;
+	if(  (err != 0)  &&  (ModbusDataPackage.dat[0] != 0) )
+	{
+		ModbusReturnAckInfo(err);
+		return ERROR;
+	}
+	
+	temp[0] = KeepRegister.DeviceAddress;
+	temp[1] = ModbusDataPackage.dat[1];
+	temp[2] = 0x00;
+	temp[3] = 0x00;
+	temp[4] = 0x00;
+	temp[5] = 0x00;
+	
+	crc = CRC16_Check(temp,6);
+	
+	temp[6] = crc &0xff;
+	temp[7] = crc >> 8;
+	if(ModbusDataPackage.dat[0]) U485SendData(temp,8);
+	
+	SystemResetSoft();
+	
+	
+	return SUCCESS;
+}
+
+
 /*******************************************************************************
 * Function Name  : ProcessTask
 * Description    : 指令处理函数，根据接收指令不同执行相应的任务函数
@@ -584,6 +624,9 @@ void InstructionTask(void)
 								ModbusWriteSingleRegistor();
 								InputRegister.SystemWorkStatus=0x03;
 								break;
+					case SoftWare_Reset:
+								ResetSoftware();
+								break;
 					case WriteSomeRegistor:			//写多个保持寄存器
 								ModbusWriteSomeRegistor();
 								InputRegister.SystemWorkStatus=0x04;
@@ -614,19 +657,22 @@ void InstructionTask(void)
 			else if (ModbusDataPackage.dat[0] == 0x00)//是广播指令
 			{
 
-				//switch(ModbusDataPackage.dat[1])
-				//{
+				switch(ModbusDataPackage.dat[1])
+				{
 					//case SetOriginalVal:		//设定初始值
 								ModbusSetInitalValue();
 								InputRegister.SystemWorkStatus=0x09;
-								//break;
+								break;
 					//case StartSampling:
 								//ModbusStartSampling();
 								//InputRegister.SystemWorkStatus=0x0a;
 								//break;
-					//default:
-								//break;
-				//}
+					case SoftWare_Reset:
+								ResetSoftware();
+								break;
+					default:
+								break;
+				}
 			} 
 		}
 		USART1_ClearBuf_Flag();				 //清空串口接收缓存

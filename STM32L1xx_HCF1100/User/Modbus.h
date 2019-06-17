@@ -25,6 +25,7 @@ enum ModbusFunction_t
 	ReadKeepRegistor=0x03,        //读取保持寄存器
 	ReadInputRegistor=0x04,       //读取输入寄存器
 	WriteSingleRegistor=0x06,     //预置单寄存器
+	SoftWare_Reset	= 0x09,
 	WriteSomeRegistor=0x10,       //预置多寄存器
 	//Get_SNInfo=0x40,            //获取SN信息
 	HMC5883SetOffset=0x40,	      //自动设置初值

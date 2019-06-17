@@ -44,7 +44,7 @@
 
 
 //定义log_info
-#define debug
+//#define debug
 #ifdef debug
 		//#define log_info(...)    printf(__VA_ARGS__);
 		 #define log_info(...)     GPIO_SetBits(GPIOA,GPIO_Pin_4);printf(__VA_ARGS__);GPIO_ResetBits(GPIOA,GPIO_Pin_4)
@@ -62,19 +62,19 @@
 #define ERROR			              	0		   //失败
 #define SUCCESS			            	1		   //成功
 
-#define DEVICETYPE					  0x044C	   //HCF1100设备类型,将十进制1100转换为十六进制
-#define SOFTWAREVERSION			  0x0401     //软件版本号定义规则：版本号共三位表示，例如1.2.3，表示方法为：高八位表示1，低八位表示23,其中低八位最大表示99
+#define DEVICETYPE					  	0x044C	   //HCF1100设备类型,将十进制1100转换为十六进制
+#define SOFTWAREVERSION			  	  	0x0401     //软件版本号定义规则：版本号共三位表示，例如1.2.3，表示方法为：高八位表示1，低八位表示23,其中低八位最大表示99
 
-#define DefaultDeviceADDR			  0x01	   
-#define DefaultDeviceMode	      0x01	   
-#define DefaultAIA      			  1000
-#define DefaultOriginalXACC  		0.0
-#define DefaultOriginalYACC  		0.0
-#define DefaultOriginalZACC  		0.0
+#define DefaultDeviceADDR			  	0x01	   
+#define DefaultDeviceMode	      		0x01	   
+#define DefaultAIA      			  	1000
+#define DefaultOriginalXACC  			0.0
+#define DefaultOriginalYACC  			0.0
+#define DefaultOriginalZACC  			0.0
 
-#define DefaultOriginalXMAG  		0.0
-#define DefaultOriginalYMAG  		0.0
-#define DefaultOriginalZMAG  		0.0
+#define DefaultOriginalXMAG  			0.0
+#define DefaultOriginalYMAG  			0.0
+#define DefaultOriginalZMAG  			0.0
 #define DefaultDeviceLen				5         //设备长度，单位米，/10使用
 
 #define KeepRegister_Num	    (sizeof(KeepRegister)/2)
