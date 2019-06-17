@@ -10,21 +10,21 @@
 #define Default_USART2_INTERVAL_TIME 3  //定义串口两个包接收间隔时间限制值,3ms
 #define Default_USART3_INTERVAL_TIME 3  //定义串口两个包接收间隔时间限制值,3ms
 
-#define UART1_RBUF_SIZE   256		//要求：2 的整次幂
+#define UART1_RBUF_SIZE   512		//要求：2 的整次幂
 #if UART1_RBUF_SIZE < 2
 #error UART1_RBUF_SIZE is too small.  It must be larger than 1.
 #elif ((UART1_RBUF_SIZE & (UART1_RBUF_SIZE-1)) != 0)
 #error UART1_RBUF_SIZE must be a power of 2.
 #endif
 
-#define UART2_RBUF_SIZE   256		//要求：2 的整次幂
+#define UART2_RBUF_SIZE   512		//要求：2 的整次幂
 #if UART2_RBUF_SIZE < 2
 #error UART2_RBUF_SIZE is too small.  It must be larger than 1.
 #elif ((UART2_RBUF_SIZE & (UART2_RBUF_SIZE-1)) != 0)
 #error UART2_RBUF_SIZE must be a power of 2.
 #endif
 
-#define UART3_RBUF_SIZE   256		//要求：2 的整次幂
+#define UART3_RBUF_SIZE   512		//要求：2 的整次幂
 #if UART3_RBUF_SIZE < 2
 #error UART3_RBUF_SIZE is too small.  It must be larger than 1.
 #elif ((UART3_RBUF_SIZE & (UART3_RBUF_SIZE-1)) != 0)

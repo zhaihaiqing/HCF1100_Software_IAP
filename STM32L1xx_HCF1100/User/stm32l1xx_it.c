@@ -192,7 +192,7 @@ void USART1_IRQHandler(void)
 		if(!ModbusDataPackage.DataFlag)
 		{
 			//如果缓存为空,表示第一个数据,或者未达到接收时间间隔，判定为继续接收
-			if((((p->out - p->in) & (UART1_RBUF_SIZE - 1)) == 0) || ModbusIntervalTime)
+			if((((p->out - p->in)) == 0) || ModbusIntervalTime)
 			{
 				ModbusIntervalTime=Default_MODBUS_INTERVAL_TIME;
 				if((p->in - p->out)<UART1_RBUF_SIZE)

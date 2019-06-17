@@ -595,7 +595,7 @@ char ResetSoftware(void)
 *******************************************************************************/
 void InstructionTask(void)
 {
-	unsigned char ix;
+	unsigned short ix;
 	unsigned short crc;
 	RS485_RX();
 	if(ModbusDataPackage.DataFlag)		  //数据包已接收完成
