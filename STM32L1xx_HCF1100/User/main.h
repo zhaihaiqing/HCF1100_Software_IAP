@@ -141,6 +141,8 @@ void ClC_WatchDogTask(void);
 
 extern float MKx,MKy,MKz;
 
+extern unsigned char MAG_Flag;
+
 
 
 

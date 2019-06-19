@@ -164,16 +164,7 @@ unsigned char HMC5883L_I2CRead( unsigned char reg_name, unsigned char* read_ptr,
     return SUCCESS;
     
 HMC5883L_I2C_READ_ERR:    
-
-//	SubSensor_PowerOff();
-//	OSTimeDlyHMSM(0, 0, 1, 0, OS_OPT_TIME_HMSM_STRICT, &tmp_os_err); 	
-//	OSSemPost(&i2c1_sem, OS_OPT_POST_ALL, &tmp_os_err);
-    //printf("HMC5883L_I2C_READ_ERR[%d] \r\n", err);
-	fflush(stdout);
-	__set_FAULTMASK(1);				//自动重启
-	NVIC_SystemReset();
-	
-    return !SUCCESS;
+	return 0;
 }
 
 unsigned char HMC5883L_I2CWrite(unsigned char reg_name, unsigned char* write_ptr, unsigned char len)
@@ -240,12 +231,8 @@ unsigned char HMC5883L_I2CWrite(unsigned char reg_name, unsigned char* write_ptr
     }
     return SUCCESS;
 	
-HMC5883L_I2C_WRITE_ERR:
-	fflush(stdout);
-	__set_FAULTMASK(1);				//自动重启
-	NVIC_SystemReset();
-	
-    return !SUCCESS;
+HMC5883L_I2C_WRITE_ERR:		
+	return 0;
 }
 
 //void Azimuth_Correct(incli_angle_data incli_angle_tmp)
@@ -422,7 +409,7 @@ unsigned char HMC5883L_Task(signed short int * px)
 *******************************************************************************/
 void HMC5883L_MAG_TASK(float * px)
 {
-	uint8_t tmp_data;
+	uint8_t tmp_data=0;
 	unsigned char Samp_Count=30;
 	unsigned char i=0,j=0;
 	signed short int MAG_out_data[3]={0};
@@ -438,6 +425,10 @@ void HMC5883L_MAG_TASK(float * px)
 	MKz=1.0*KeepRegister.MAG_Mx/KeepRegister.MAG_Mz;
 	
 	HMC5883L_SetMode();	
+	
+	
+	
+	
 	for(i=0;i<Samp_Count;i++)                   //将连续的magCount个数据分accCount次采集，避免单一任务长时间执行
 	{
 		InstructionTask();												//分组响应其他任务
@@ -495,6 +486,7 @@ void HMC5883L_MAG_TASK(float * px)
 	*px=mtx/5;
 	*(px+1)=mty/5;
 	*(px+2)=mtz/5;
+	
 }
 
 void HMC5883L_SelfTest(void)

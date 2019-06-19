@@ -12,6 +12,8 @@
 
 float MKx=0,MKy=0,MKz=0;										//定义磁力计椭圆修正系数
 
+unsigned char MAG_Flag=0;
+
 volatile unsigned int SysTick_Count = 0;   //Systick计数
 volatile unsigned int SysTick_Count1 = 0;   //Systick计数
 volatile unsigned int TimingDelay = 0;     //延时函数计数
@@ -143,6 +145,7 @@ void ClC_WatchDogTask(void)
 * Output         : None
 * Return         : None
 *******************************************************************************/
+unsigned char IDCheck_tem=0;
 int main(void)
 {
 	SCB->VTOR = FLASH_BASE | 0x8000;      //设置向量表偏移值，Bootloader起始地址为0x0800 0000，共32KB空间,APP程序起始地址为0x0800 8000，
@@ -158,7 +161,15 @@ int main(void)
 	RS485_RX();														//RS485切换为接收模式
 	Delay(10);
 	
-	//log_info("addr:%d\r\n",KeepRegister.DeviceAddress);
+	IDCheck_tem=HMC5883L_CheckID();
+	if(IDCheck_tem==0x48) 
+		MAG_Flag=1;
+	else	MAG_Flag=0;
+	
+//	log_info("addr:%d\r\n",KeepRegister.DeviceAddress);
+//	log_info("MAG_Flag:%d\r\n",MAG_Flag);
+//	log_info("IDCheck_tem:%d\r\n",IDCheck_tem);
+	
   while (1)
   {
 		ProcessTask();											//进入任务函数

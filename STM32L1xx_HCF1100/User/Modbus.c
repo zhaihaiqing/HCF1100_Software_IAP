@@ -763,7 +763,6 @@ unsigned char ProcessTask(void)
 		accy+=ACC_data[1];
 		accz+=ACC_data[2];
 		acct+=ACC_data[3];
-		//log_info("accx:%f,accy:%f,accz:%f,acct:%f\r\n",ACC_data[0],ACC_data[1],ACC_data[2],ACC_data[3]);
 	}
 	
 	//加速计坐标系变换
@@ -784,8 +783,10 @@ unsigned char ProcessTask(void)
 	InputRegister.pitch=ACC_pitch*180.0/PI;//计算俯仰角，转换为角度赋值到输入寄存器
 	InputRegister.roll=ACC_roll*180.0/PI;	 //计算横滚角，转换为角度赋值到输入寄存器
 	
+	//log_info("IMU_Data.XACC:%f,IMU_Data.YACC:%f,IMU_Data.ZACC:%f\r\n",IMU_Data.XACC,IMU_Data.YACC,IMU_Data.ZACC);	
+	
 	/*********************磁力计采样任务*****************************************/
-	if(KeepRegister.IS_USER_MAG) 					//使用磁力计数据,则进行磁力计采样
+	if(KeepRegister.IS_USER_MAG && MAG_Flag) 					//使用磁力计数据,则进行磁力计采样
 	{
 		//	do
 		//	{
@@ -794,6 +795,7 @@ unsigned char ProcessTask(void)
 		//	Delay(5);	
 		
 		HMC5883L_MAG_TASK(MAG_data);
+		
 		
 		//	Delay(5);
 		//	if(Modbus_BusyFlag)
@@ -820,6 +822,8 @@ unsigned char ProcessTask(void)
 		IMU_Data.azimuth=atan2(mag_yh, mag_xh)*180.0/PI;
 		if(IMU_Data.azimuth<0)IMU_Data.azimuth=IMU_Data.azimuth+360;
 		InputRegister.azimuth=IMU_Data.azimuth;
+		
+		//log_info("IMU_Data.XMAG:%f,IMU_Data.YMAG:%f,IMU_Data.ZMAG:%f\r\n",IMU_Data.XMAG,IMU_Data.YMAG,IMU_Data.ZMAG);
 	}
 	else InputRegister.azimuth=0;	     //不使用磁力计数据,航向角直接赋为0
 
