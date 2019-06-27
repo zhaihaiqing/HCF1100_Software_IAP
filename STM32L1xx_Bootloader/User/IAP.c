@@ -203,6 +203,10 @@ unsigned char Update_Firmware(void)
 				ClearUsartBuf();
 				break;	//Ìø³öµ±Ç°while(1)
 			}
+			else if( (ModbusDataPackage.dat[0]==BL_Data.DeviceAddress)&&(ModbusDataPackage.DataLen==8) && (ModbusDataPackage.dat[1]==0x22) )
+			{
+				Re_BootLoader_Info();
+			}
 			else 
 			{
 				ClearUsartBuf();

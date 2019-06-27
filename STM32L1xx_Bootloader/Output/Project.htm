@@ -3,11 +3,11 @@
 <title>Static Call Graph - [.\Output\Project.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Output\Project.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Wed Jun 12 16:29:50 2019
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Thu Jun 27 13:55:58 2019
 <BR><P>
-<H3>Maximum Stack Usage =        360 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =        376 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
-main &rArr; Update_Firmware &rArr; U485SendData &rArr; USART_PutData &rArr; USART_PutChar
+main &rArr; Update_Firmware &rArr; Re_BootLoader_Info &rArr; U485SendData &rArr; USART_PutData &rArr; USART_PutChar
 <P>
 <H3>
 Mutually Recursive functions
@@ -542,6 +542,7 @@ Global Symbols
 <LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ClearUsartBuf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Wait_Commend
+<LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Update_Firmware
 </UL>
 
 <P><STRONG><a name="[5f]"></a>Re_BootLoader_Update</STRONG> (Thumb, 92 bytes, Stack size 16 bytes, iap.o(i.Re_BootLoader_Update))
@@ -704,8 +705,8 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_PutChar
 </UL>
 
-<P><STRONG><a name="[73]"></a>Update_Firmware</STRONG> (Thumb, 1082 bytes, Stack size 304 bytes, iap.o(i.Update_Firmware))
-<BR><BR>[Stack]<UL><LI>Max Depth = 360<LI>Call Chain = Update_Firmware &rArr; U485SendData &rArr; USART_PutData &rArr; USART_PutChar
+<P><STRONG><a name="[73]"></a>Update_Firmware</STRONG> (Thumb, 1132 bytes, Stack size 304 bytes, iap.o(i.Update_Firmware))
+<BR><BR>[Stack]<UL><LI>Max Depth = 376<LI>Call Chain = Update_Firmware &rArr; Re_BootLoader_Info &rArr; U485SendData &rArr; USART_PutData &rArr; USART_PutChar
 </UL>
 <BR>[Calls]<UL><LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Write_4NByte_to_Flash
 <LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_GetChar
@@ -713,6 +714,7 @@ Global Symbols
 <LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FLASH_Page_Erase
 <LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EEWrite
 <LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CRC16_Check
+<LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Re_BootLoader_Info
 <LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ClearUsartBuf
 <LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iap_load_app
 <LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Delay
@@ -767,7 +769,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[37]"></a>main</STRONG> (Thumb, 104 bytes, Stack size 0 bytes, main.o(i.main))
-<BR><BR>[Stack]<UL><LI>Max Depth = 360<LI>Call Chain = main &rArr; Update_Firmware &rArr; U485SendData &rArr; USART_PutData &rArr; USART_PutChar
+<BR><BR>[Stack]<UL><LI>Max Depth = 376<LI>Call Chain = main &rArr; Update_Firmware &rArr; Re_BootLoader_Info &rArr; U485SendData &rArr; USART_PutData &rArr; USART_PutChar
 </UL>
 <BR>[Calls]<UL><LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iap_load_app
 <LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Wait_Commend
