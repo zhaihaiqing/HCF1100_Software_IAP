@@ -1,6 +1,6 @@
 Dependencies for Project 'Project', Target 'STM32L1xx': (DO NOT MODIFY !)
 F (.\User\main.c)(0x5D00B7FD)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I .\User -I .\FWlib\src -I .\FWlib\inc -I .\CMSIS -I .\BSD-I.\RTE\_STM32L1xx-I"D:\Program Files\Keil_v5\ARM\PACK\Keil\STM32L1xx_DFP\1.2.0\Device\Include"-I"D:\Program Files\Keil_v5\ARM\CMSIS\Include"-D__UVISION_VERSION="525" -DSTM32L151xB -DUSE_STDPERIPH_DRIVER -DSTM32L1XX-o .\output\main.o --omf_browse .\output\main.crf --depend .\output\main.d)
-I (User\main.h)(0x5D145BB0)
+I (User\main.h)(0x5D197969)
 I (D:\Program Files\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
 I (D:\Program Files\Keil_v5\ARM\ARMCC\include\string.h)(0x599ECD2C)
 I (D:\Program Files\Keil_v5\ARM\ARMCC\include\math.h)(0x599ECD2E)
@@ -79,7 +79,7 @@ I (.\FWlib\inc\stm32l1xx_tim.h)(0x55353DCC)
 I (.\FWlib\inc\stm32l1xx_usart.h)(0x55353DCC)
 I (.\FWlib\inc\stm32l1xx_wwdg.h)(0x55353DCC)
 I (.\FWlib\inc\misc.h)(0x55353DCC)
-I (User\main.h)(0x5D145BB0)
+I (User\main.h)(0x5D197969)
 I (D:\Program Files\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
 I (D:\Program Files\Keil_v5\ARM\ARMCC\include\string.h)(0x599ECD2C)
 I (D:\Program Files\Keil_v5\ARM\ARMCC\include\math.h)(0x599ECD2E)
@@ -91,7 +91,7 @@ I (.\BSD\IFLASH.h)(0x5CFEFC43)
 I (User\IAP.h)(0x5CFF717B)
 I (User\IAP_CONFIG.h)(0x5D00AFCB)
 F (.\User\IAP.c)(0x5D145A6C)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I .\User -I .\FWlib\src -I .\FWlib\inc -I .\CMSIS -I .\BSD-I.\RTE\_STM32L1xx-I"D:\Program Files\Keil_v5\ARM\PACK\Keil\STM32L1xx_DFP\1.2.0\Device\Include"-I"D:\Program Files\Keil_v5\ARM\CMSIS\Include"-D__UVISION_VERSION="525" -DSTM32L151xB -DUSE_STDPERIPH_DRIVER -DSTM32L1XX-o .\output\iap.o --omf_browse .\output\iap.crf --depend .\output\iap.d)
-I (User\main.h)(0x5D145BB0)
+I (User\main.h)(0x5D197969)
 I (D:\Program Files\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
 I (D:\Program Files\Keil_v5\ARM\ARMCC\include\string.h)(0x599ECD2C)
 I (D:\Program Files\Keil_v5\ARM\ARMCC\include\math.h)(0x599ECD2E)
@@ -136,7 +136,7 @@ I (.\BSD\IFLASH.h)(0x5CFEFC43)
 I (User\IAP.h)(0x5CFF717B)
 I (User\IAP_CONFIG.h)(0x5D00AFCB)
 F (.\User\Modbus.c)(0x5D00A13E)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I .\User -I .\FWlib\src -I .\FWlib\inc -I .\CMSIS -I .\BSD-I.\RTE\_STM32L1xx-I"D:\Program Files\Keil_v5\ARM\PACK\Keil\STM32L1xx_DFP\1.2.0\Device\Include"-I"D:\Program Files\Keil_v5\ARM\CMSIS\Include"-D__UVISION_VERSION="525" -DSTM32L151xB -DUSE_STDPERIPH_DRIVER -DSTM32L1XX-o .\output\modbus.o --omf_browse .\output\modbus.crf --depend .\output\modbus.d)
-I (User\main.h)(0x5D145BB0)
+I (User\main.h)(0x5D197969)
 I (D:\Program Files\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
 I (D:\Program Files\Keil_v5\ARM\ARMCC\include\string.h)(0x599ECD2C)
 I (D:\Program Files\Keil_v5\ARM\ARMCC\include\math.h)(0x599ECD2E)
@@ -181,7 +181,7 @@ I (.\BSD\IFLASH.h)(0x5CFEFC43)
 I (User\IAP.h)(0x5CFF717B)
 I (User\IAP_CONFIG.h)(0x5D00AFCB)
 F (.\BSD\gpio.c)(0x5D008D4E)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I .\User -I .\FWlib\src -I .\FWlib\inc -I .\CMSIS -I .\BSD-I.\RTE\_STM32L1xx-I"D:\Program Files\Keil_v5\ARM\PACK\Keil\STM32L1xx_DFP\1.2.0\Device\Include"-I"D:\Program Files\Keil_v5\ARM\CMSIS\Include"-D__UVISION_VERSION="525" -DSTM32L151xB -DUSE_STDPERIPH_DRIVER -DSTM32L1XX-o .\output\gpio.o --omf_browse .\output\gpio.crf --depend .\output\gpio.d)
-I (.\User\main.h)(0x5D145BB0)
+I (.\User\main.h)(0x5D197969)
 I (D:\Program Files\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
 I (D:\Program Files\Keil_v5\ARM\ARMCC\include\string.h)(0x599ECD2C)
 I (D:\Program Files\Keil_v5\ARM\ARMCC\include\math.h)(0x599ECD2E)
@@ -225,7 +225,7 @@ I (.\BSD\IFLASH.h)(0x5CFEFC43)
 I (.\User\IAP.h)(0x5CFF717B)
 I (.\User\IAP_CONFIG.h)(0x5D00AFCB)
 F (.\BSD\IEEPROM.c)(0x5CFCC111)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I .\User -I .\FWlib\src -I .\FWlib\inc -I .\CMSIS -I .\BSD-I.\RTE\_STM32L1xx-I"D:\Program Files\Keil_v5\ARM\PACK\Keil\STM32L1xx_DFP\1.2.0\Device\Include"-I"D:\Program Files\Keil_v5\ARM\CMSIS\Include"-D__UVISION_VERSION="525" -DSTM32L151xB -DUSE_STDPERIPH_DRIVER -DSTM32L1XX-o .\output\ieeprom.o --omf_browse .\output\ieeprom.crf --depend .\output\ieeprom.d)
-I (.\User\main.h)(0x5D145BB0)
+I (.\User\main.h)(0x5D197969)
 I (D:\Program Files\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
 I (D:\Program Files\Keil_v5\ARM\ARMCC\include\string.h)(0x599ECD2C)
 I (D:\Program Files\Keil_v5\ARM\ARMCC\include\math.h)(0x599ECD2E)
@@ -269,7 +269,7 @@ I (.\BSD\IFLASH.h)(0x5CFEFC43)
 I (.\User\IAP.h)(0x5CFF717B)
 I (.\User\IAP_CONFIG.h)(0x5D00AFCB)
 F (.\BSD\IFLASH.c)(0x5C243D0A)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I .\User -I .\FWlib\src -I .\FWlib\inc -I .\CMSIS -I .\BSD-I.\RTE\_STM32L1xx-I"D:\Program Files\Keil_v5\ARM\PACK\Keil\STM32L1xx_DFP\1.2.0\Device\Include"-I"D:\Program Files\Keil_v5\ARM\CMSIS\Include"-D__UVISION_VERSION="525" -DSTM32L151xB -DUSE_STDPERIPH_DRIVER -DSTM32L1XX-o .\output\iflash.o --omf_browse .\output\iflash.crf --depend .\output\iflash.d)
-I (.\User\main.h)(0x5D145BB0)
+I (.\User\main.h)(0x5D197969)
 I (D:\Program Files\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
 I (D:\Program Files\Keil_v5\ARM\ARMCC\include\string.h)(0x599ECD2C)
 I (D:\Program Files\Keil_v5\ARM\ARMCC\include\math.h)(0x599ECD2E)
@@ -313,7 +313,7 @@ I (.\BSD\IFLASH.h)(0x5CFEFC43)
 I (.\User\IAP.h)(0x5CFF717B)
 I (.\User\IAP_CONFIG.h)(0x5D00AFCB)
 F (.\BSD\uart.c)(0x5D008F38)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I .\User -I .\FWlib\src -I .\FWlib\inc -I .\CMSIS -I .\BSD-I.\RTE\_STM32L1xx-I"D:\Program Files\Keil_v5\ARM\PACK\Keil\STM32L1xx_DFP\1.2.0\Device\Include"-I"D:\Program Files\Keil_v5\ARM\CMSIS\Include"-D__UVISION_VERSION="525" -DSTM32L151xB -DUSE_STDPERIPH_DRIVER -DSTM32L1XX-o .\output\uart.o --omf_browse .\output\uart.crf --depend .\output\uart.d)
-I (.\User\main.h)(0x5D145BB0)
+I (.\User\main.h)(0x5D197969)
 I (D:\Program Files\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
 I (D:\Program Files\Keil_v5\ARM\ARMCC\include\string.h)(0x599ECD2C)
 I (D:\Program Files\Keil_v5\ARM\ARMCC\include\math.h)(0x599ECD2E)
