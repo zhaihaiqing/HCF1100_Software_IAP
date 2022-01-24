@@ -44,7 +44,7 @@
 
 
 //∂®“Âlog_info
-//#define debug
+#define debug
 #ifdef debug
 		//#define log_info(...)    printf(__VA_ARGS__);
 		 #define log_info(...)     GPIO_SetBits(GPIOA,GPIO_Pin_4);printf(__VA_ARGS__);GPIO_ResetBits(GPIOA,GPIO_Pin_4)

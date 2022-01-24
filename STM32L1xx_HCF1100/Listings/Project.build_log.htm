@@ -22,62 +22,17 @@ Dialog DLL:      TCM.DLL V1.35.1.0
  
 <h2>Project:</h2>
 E:\HD\HCF1100\HCF1100_Software_IAP\STM32L1xx_HCF1100\Project.uvprojx
-Project File Date:  06/19/2019
+Project File Date:  11/26/2019
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'D:\Program Files\Keil_v5\ARM\ARMCC\Bin'
 Build target 'STM32L1xx'
-compiling uart.c...
-compiling stm32l1xx_it.c...
-compiling HMC5883.c...
-User\HMC5883.c(72): warning:  #550-D: variable "err"  was set but never used
-  	uint8_t err;
-User\HMC5883.c(172): warning:  #550-D: variable "err"  was set but never used
-  	uint8_t err;
-User\HMC5883.c(412): warning:  #177-D: variable "tmp_data"  was declared but never referenced
-  	uint8_t tmp_data=0;
-User\HMC5883.c: 3 warnings, 0 errors
-compiling gpio.c...
 compiling main.c...
-compiling IFlash.c...
-compiling ADXL355.c...
-compiling Modbus.c...
-User\Modbus.c(458): warning:  #167-D: argument of type "const unsigned char *" is incompatible with parameter of type "const char *"
-  	if( strncmp(FactorySetValueWord,(unsigned char *)&ModbusDataPackage.dat[2],4) !=0 )err=err_OE;
-User\Modbus.c(458): warning:  #167-D: argument of type "unsigned char *" is incompatible with parameter of type "const char *"
-  	if( strncmp(FactorySetValueWord,(unsigned char *)&ModbusDataPackage.dat[2],4) !=0 )err=err_OE;
-User\Modbus.c(456): warning:  #177-D: variable "OriginaAltitudeTemp"  was declared but never referenced
-  	float OriginaAltitudeTemp=0;
-User\Modbus.c(507): warning:  #167-D: argument of type "const unsigned char *" is incompatible with parameter of type "const char *"
-  	if( strncmp(FactorySetValueWord,(unsigned char *)&ModbusDataPackage.dat[2],4) !=0 )err=err_OE;
-User\Modbus.c(507): warning:  #167-D: argument of type "unsigned char *" is incompatible with parameter of type "const char *"
-  	if( strncmp(FactorySetValueWord,(unsigned char *)&ModbusDataPackage.dat[2],4) !=0 )err=err_OE;
-User\Modbus.c(562): warning:  #167-D: argument of type "const unsigned char *" is incompatible with parameter of type "const char *"
-  	if( strncmp(FactoryResetWord,(unsigned char *)&ModbusDataPackage.dat[2],4) !=0 )err=err_OE;
-User\Modbus.c(562): warning:  #167-D: argument of type "unsigned char *" is incompatible with parameter of type "const char *"
-  	if( strncmp(FactoryResetWord,(unsigned char *)&ModbusDataPackage.dat[2],4) !=0 )err=err_OE;
-User\Modbus.c(560): warning:  #177-D: variable "OriginaAltitudeTemp"  was declared but never referenced
-  	float OriginaAltitudeTemp=0;
-User\Modbus.c(663): warning:  #111-D: statement is unreachable
-  								ModbusSetInitalValue();
-User\Modbus.c(697): warning:  #550-D: variable "m11"  was set but never used
-  	float m11=0,m12=0,m13=0;
-User\Modbus.c(697): warning:  #550-D: variable "m12"  was set but never used
-  	float m11=0,m12=0,m13=0;
-User\Modbus.c(698): warning:  #550-D: variable "m21"  was set but never used
-  	float m21=0,m22=0,m23=0;
-User\Modbus.c(698): warning:  #550-D: variable "m22"  was set but never used
-  	float m21=0,m22=0,m23=0;
-User\Modbus.c(699): warning:  #550-D: variable "m31"  was set but never used
-  	float m31=0,m32=0,m33=0;
-User\Modbus.c(699): warning:  #550-D: variable "m32"  was set but never used
-  	float m31=0,m32=0,m33=0;
-User\Modbus.c: 15 warnings, 0 errors
 linking...
-Program Size: Code=15936 RO-data=736 RW-data=108 ZI-data=6532  
+Program Size: Code=16488 RO-data=736 RW-data=112 ZI-data=6536  
 FromELF: creating hex file...
 After Build - User command #1: D:\Program Files\Keil_v5\\ARM\ARMCC\bin\fromelf.exe --bin --output=Output\Project.bin .\Listings\Project.axf
-".\Listings\Project.axf" - 0 Error(s), 18 Warning(s).
+".\Listings\Project.axf" - 0 Error(s), 0 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -91,7 +46,7 @@ Package Vendor: Keil
   D:\Program Files\Keil_v5\ARM\PACK\Keil\STM32L1xx_DFP\1.2.0\Device\Include
 
 <h2>Collection of Component Files used:</h2>
-Build Time Elapsed:  00:00:02
+Build Time Elapsed:  00:00:01
 </pre>
 </body>
 </html>

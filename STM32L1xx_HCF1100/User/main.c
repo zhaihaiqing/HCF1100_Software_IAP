@@ -148,27 +148,28 @@ void ClC_WatchDogTask(void)
 unsigned char IDCheck_tem=0;
 int main(void)
 {
-	SCB->VTOR = FLASH_BASE | 0x8000;      //设置向量表偏移值，Bootloader起始地址为0x0800 0000，共32KB空间,APP程序起始地址为0x0800 8000，
+	//SCB->VTOR = FLASH_BASE | 0x8000;      //设置向量表偏移值，Bootloader起始地址为0x0800 0000，共32KB空间,APP程序起始地址为0x0800 8000，
 	
 	Init_Devices();												//初始化设备
 	Init_Parameter();											//初始化参数
-	ClC_WatchDogTask();										//看门狗任务
-	Delay(100);														//启动延时
+	ClC_WatchDogTask();											//看门狗任务
+	Delay(100);													//启动延时
 	HMC5883L_Init();											//初始化磁力计，包含I2C初始化
 	ClC_WatchDogTask();
 	ADXL355_Init();												//初始化加速度计，包含SPI初始化
-	ClC_WatchDogTask();										//看门狗任务
-	RS485_RX();														//RS485切换为接收模式
+	ClC_WatchDogTask();											//看门狗任务
+	RS485_RX();													//RS485切换为接收模式
 	Delay(10);
 	
 	IDCheck_tem=HMC5883L_CheckID();
 	if(IDCheck_tem==0x48) 
 		MAG_Flag=1;
-	else	MAG_Flag=0;
+	else	
+		MAG_Flag=0;
 	
-//	log_info("addr:%d\r\n",KeepRegister.DeviceAddress);
-//	log_info("MAG_Flag:%d\r\n",MAG_Flag);
-//	log_info("IDCheck_tem:%d\r\n",IDCheck_tem);
+	log_info("addr:%d\r\n",KeepRegister.DeviceAddress);
+	log_info("MAG_Flag:%d\r\n",MAG_Flag);
+	log_info("IDCheck_tem:%d\r\n",IDCheck_tem);
 	
   while (1)
   {
